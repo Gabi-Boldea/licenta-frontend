@@ -14,7 +14,7 @@ const UsernameMenu = () => {
                 <CircleUserRound className="text-orange-500"></CircleUserRound>
                 {user?.email}
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="bg-white shadow-md">
                 <DropdownMenuItem>
                     <Link 
                         to="/manage-restaurant" 

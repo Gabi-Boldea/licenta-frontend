@@ -18,7 +18,7 @@ const formSchema = z
       required_error: "Restuarant name is required",
     }),
     address: z.string({
-      required_error: "The address is required",
+      required_error: "The city is required",
     }),
     phone: z.string({
       required_error: "Phone number is required",

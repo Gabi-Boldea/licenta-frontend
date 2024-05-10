@@ -7,7 +7,7 @@ export const cuisineList = [
     'Cafe',
     'Chinese',
     'Desserts',
-    'Fast Food',
+    'FastFood',
     'French',
     'Greek',
     'Indian',

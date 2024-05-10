@@ -32,7 +32,7 @@ const DetailsSection = () => {
                     name="address"
                     render={({field}) => (
                         <FormItem className="flex-1">
-                            <FormLabel>Address</FormLabel>
+                            <FormLabel>City</FormLabel>
                             <FormControl>
                                 <Input {...field} className="bg-white" />
                             </FormControl>
