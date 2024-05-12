@@ -11,7 +11,7 @@ export type User = {
     postalCode?: string | null;
 };
 
-export type MenuItemType = {
+export type MenuItem = {
     _id: string;
     name: string;
     price: number;
@@ -26,7 +26,7 @@ export type Restaurant = {
     deliveryPrice: number;
     estimatedDeliveryTime: number;
     cuisines: string[];
-    menuItems: MenuItemType[];
+    menuItems: MenuItem[];
     imageUrl: string;
     lastUpdated: string;
 };

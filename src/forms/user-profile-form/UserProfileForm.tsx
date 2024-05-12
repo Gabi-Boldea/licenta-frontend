@@ -13,22 +13,24 @@ const formSchema = z.object({
     name: z.string().min(1, "Name is required"),
     phoneNumber: z.string().min(1, "Phone number is required"),
     addressLine1: z.string().min(1, "Address Line 1 is required"),
-    addressLine2: z.string().optional(),
+    addressLine2: z.string().min(1, "Address Line 2 is required"),
     city: z.string().min(1, "City is required"),
     county: z.string().min(1, "County is required"),
     country: z.string().min(1, "Country is required"),
-    postalCode: z.string().optional(),
+    postalCode: z.string().min(1, "Postal Code is required"),
 });
 
-type UserFormData = z.infer<typeof formSchema>;
+export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
     currentUser: User;
     onSave: (userProfileData: UserFormData) => void;
     isLoading: boolean;
+    title?: string;
+    buttonText?: string;
 };
 
-const UserProfileForm = ({onSave, isLoading, currentUser}: Props) => {
+const UserProfileForm = ({onSave, isLoading, currentUser, title="User Profile", buttonText="Submit"}: Props) => {
     const form = useForm<UserFormData>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -66,7 +68,7 @@ const UserProfileForm = ({onSave, isLoading, currentUser}: Props) => {
             >
 
                 <div>
-                    <h2 className="text-2xl font-bold">User Profile</h2>
+                    <h2 className="text-2xl font-bold">{title}</h2>
                     <FormDescription>
                         View and edit your user profile information
                     </FormDescription>
@@ -204,7 +206,7 @@ const UserProfileForm = ({onSave, isLoading, currentUser}: Props) => {
                 {isLoading ? (
                     <LoadingButton /> 
                 ) : ( 
-                    <Button type="submit" className="bg-orange-500">Submit</Button>
+                    <Button type="submit" className="bg-orange-500">{buttonText}</Button>
                 )}
 
             </form>
